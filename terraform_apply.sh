@@ -32,4 +32,5 @@ fi
 source "$CREDENTIALS_FILE"
 
 cd "$ENV_DIR"
+terraform init -upgrade
 terraform apply "$@"
