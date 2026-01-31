@@ -31,6 +31,22 @@ fi
 # Load Azure credentials for Terraform
 source "$CREDENTIALS_FILE"
 
+require_env() {
+  local name="$1"
+  if [ -z "${!name:-}" ]; then
+    echo "Missing required env var: $name (check $CREDENTIALS_FILE)" >&2
+    exit 1
+  fi
+}
+
+require_env ARM_CLIENT_ID
+require_env ARM_CLIENT_SECRET
+require_env ARM_TENANT_ID
+require_env ARM_SUBSCRIPTION_ID
+
+# Ensure Terraform picks up the subscription explicitly
+export TF_VAR_subscription_id="$ARM_SUBSCRIPTION_ID"
+
 cd "$ENV_DIR"
 terraform init -upgrade
 terraform destroy -auto-approve "$@"
