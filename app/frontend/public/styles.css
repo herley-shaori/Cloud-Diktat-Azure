@@ -96,6 +96,10 @@ nav .nav-links {
   color: rgba(248, 250, 252, 0.75);
 }
 
+.hero-card .muted {
+  color: rgba(248, 250, 252, 0.78);
+}
+
 .primary-button {
   background: var(--red-600);
   color: #FFFFFF;
