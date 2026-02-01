@@ -330,6 +330,7 @@ const renderPage = () => `
           padding: 24px;
           display: grid;
           gap: 16px;
+          color: #F8FAFC;
         }
 
         .primary-button {
@@ -672,3 +673,10 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, HOST, () => {
   console.log(`Frontend listening on http://${HOST}:${PORT}`);
 });
+        .hero-card .stat-value {
+          color: #F8FAFC;
+        }
+
+        .hero-card .stat-label {
+          color: rgba(248, 250, 252, 0.75);
+        }
