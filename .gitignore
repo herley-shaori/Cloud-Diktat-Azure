@@ -39,3 +39,5 @@ terraform.rc
 credentials.env
 # Never commit environment credentials
 **/credentials.env
+
+frontend_prompt.txt
