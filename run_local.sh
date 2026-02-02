@@ -3,10 +3,10 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-( cd "$ROOT_DIR/app/backend" && (node --watch server.js || npm start) ) &
+( cd "$ROOT_DIR/app/backend" && (npx --yes nodemon --watch server.js server.js || node --watch server.js || npm start) ) &
 BACKEND_PID=$!
 
-( cd "$ROOT_DIR/app/frontend" && (node --watch server.js || npm start) ) &
+( cd "$ROOT_DIR/app/frontend" && (npx --yes nodemon --watch server.js --watch public server.js || node --watch server.js || npm start) ) &
 FRONTEND_PID=$!
 
 cleanup() {

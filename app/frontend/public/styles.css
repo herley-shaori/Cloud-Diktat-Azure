@@ -79,8 +79,8 @@ nav .nav-links {
 }
 
 .hero-card {
-  background: #F8FAFC;
-  border: 1px solid #D6E0EB;
+  background: #E9F0F8;
+  border: 1px solid #C7D5E5;
   border-radius: var(--radius);
   padding: 24px;
   display: grid;
@@ -93,11 +93,11 @@ nav .nav-links {
 }
 
 .hero-card .stat-label {
-  color: #42566B;
+  color: #3F5367;
 }
 
 .hero-card .muted {
-  color: #3E5165;
+  color: #3A4C5F;
 }
 
 .primary-button {
