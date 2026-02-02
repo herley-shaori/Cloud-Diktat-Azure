@@ -79,25 +79,25 @@ nav .nav-links {
 }
 
 .hero-card {
-  background: rgba(248, 250, 252, 0.08);
-  border: 1px solid rgba(248, 250, 252, 0.15);
+  background: #F8FAFC;
+  border: 1px solid #D6E0EB;
   border-radius: var(--radius);
   padding: 24px;
   display: grid;
   gap: 16px;
-  color: #F8FAFC;
+  color: var(--blue-900);
 }
 
 .hero-card .stat-value {
-  color: #F8FAFC;
+  color: var(--blue-900);
 }
 
 .hero-card .stat-label {
-  color: rgba(248, 250, 252, 0.75);
+  color: #42566B;
 }
 
 .hero-card .muted {
-  color: rgba(248, 250, 252, 0.78);
+  color: #3E5165;
 }
 
 .primary-button {
