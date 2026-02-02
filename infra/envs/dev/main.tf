@@ -12,6 +12,8 @@ module "static_web" {
   location            = "indonesiacentral"
   source_dir          = "${path.module}/../../../app/frontend/public"
   name_prefix         = "clouddiktatdev"
+
+  depends_on = [module.resource_group_trial]
 }
 
 output "static_web_url" {
