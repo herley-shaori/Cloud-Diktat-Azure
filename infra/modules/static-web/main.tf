@@ -57,7 +57,6 @@ resource "azurerm_storage_blob" "static" {
   storage_container_name = "$web"
   type                   = "Block"
   source                 = "${var.source_dir}/${each.value}"
-  delete_ondestroy       = true
 
   content_type = lookup(
     local.content_type_map,
