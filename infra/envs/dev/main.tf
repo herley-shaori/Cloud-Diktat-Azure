@@ -13,3 +13,8 @@ module "static_web" {
   source_dir          = "${path.module}/../../../app/frontend/public"
   name_prefix         = "clouddiktatdev"
 }
+
+output "static_web_url" {
+  description = "Public URL for the static website"
+  value       = module.static_web.web_endpoint
+}
