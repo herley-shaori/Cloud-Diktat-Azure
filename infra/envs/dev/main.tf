@@ -4,3 +4,12 @@ module "resource_group_trial" {
   resource_group_name = "rg-trial-dev"
   location            = "indonesiacentral"
 }
+
+module "static_web" {
+  source = "../../modules/static-web"
+
+  resource_group_name = "rg-trial-dev"
+  location            = "indonesiacentral"
+  source_dir          = "${path.module}/../../../app/frontend/public"
+  name_prefix         = "clouddiktatdev"
+}
