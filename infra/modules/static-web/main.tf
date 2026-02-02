@@ -64,5 +64,5 @@ resource "azurerm_storage_blob" "static" {
     "application/octet-stream"
   )
 
-  depends_on = [azurerm_storage_account.this]
+  depends_on = [azurerm_storage_account_static_website.this]
 }
