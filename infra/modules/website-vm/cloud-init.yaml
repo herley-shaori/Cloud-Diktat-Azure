@@ -1,0 +1,21 @@
+#cloud-config
+package_update: true
+packages:
+  - nginx
+write_files:
+  - path: /var/www/html/index.html
+    permissions: "0644"
+    encoding: b64
+    content: ${index_b64}
+  - path: /var/www/html/styles.css
+    permissions: "0644"
+    encoding: b64
+    content: ${styles_b64}
+  - path: /var/www/html/app.js
+    permissions: "0644"
+    encoding: b64
+    content: ${app_b64}
+
+runcmd:
+  - systemctl enable nginx
+  - systemctl restart nginx
