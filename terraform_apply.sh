@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [ -z "${BASH_VERSION:-}" ]; then
+  exec /usr/bin/env bash "$0" "$@"
+fi
+
 usage() {
   echo "Usage: $(basename "$0") <dev|prod> [terraform apply args]" >&2
 }
@@ -31,7 +35,7 @@ fi
 
 if [ -f "$PASSWORD_FILE" ]; then
   # shellcheck disable=SC1090
-  source "$PASSWORD_FILE"
+  . "$PASSWORD_FILE"
 fi
 
 # Load Azure credentials for Terraform
