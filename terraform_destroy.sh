@@ -36,6 +36,9 @@ fi
 if [ -f "$PASSWORD_FILE" ]; then
   # shellcheck disable=SC1090
   . "$PASSWORD_FILE"
+  if [ -n "${TF_VAR_admin_password:-}" ]; then
+    export TF_VAR_admin_password
+  fi
 fi
 
 # Load Azure credentials for Terraform
