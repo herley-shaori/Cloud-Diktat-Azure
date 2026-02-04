@@ -37,6 +37,9 @@ override.tf.json
 terraform.rc
 
 credentials.env
+
+# Local password files (never commit)
+**/admin_password.env
 # Never commit environment credentials
 **/credentials.env
 

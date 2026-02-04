@@ -36,20 +36,8 @@ resource "azurerm_network_security_group" "this" {
   resource_group_name = var.resource_group_name
 
   security_rule {
-    name                       = "Allow-SSH"
-    priority                   = 1001
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-
-  security_rule {
     name                       = "Allow-HTTP"
-    priority                   = 1002
+    priority                   = 1001
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
@@ -97,12 +85,8 @@ resource "azurerm_linux_virtual_machine" "this" {
     azurerm_network_interface.this.id
   ]
 
-  disable_password_authentication = true
-
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = var.ssh_public_key
-  }
+  disable_password_authentication = false
+  admin_password                  = var.admin_password
 
   custom_data = base64encode(
     templatefile("${path.module}/cloud-init.yaml", {

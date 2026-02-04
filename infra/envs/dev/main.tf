@@ -21,7 +21,7 @@ module "website_vm" {
   resource_group_name = local.resource_group_name
   location            = local.location
   admin_username      = var.admin_username
-  ssh_public_key      = var.ssh_public_key
+  admin_password      = var.admin_password
   source_dir          = "${path.module}/../../../app/frontend/public"
   name_prefix         = "clouddiktatdev"
 
