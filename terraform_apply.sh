@@ -39,18 +39,19 @@ source "$CREDENTIALS_FILE"
 
 require_env() {
   local name="$1"
+  local hint="$2"
   if [ -z "${!name:-}" ]; then
-    echo "Missing required env var: $name (check $CREDENTIALS_FILE)" >&2
+    echo "Missing required env var: $name (check $hint)" >&2
     exit 1
   fi
 }
 
-require_env ARM_CLIENT_ID
-require_env ARM_CLIENT_SECRET
-require_env ARM_TENANT_ID
-require_env ARM_SUBSCRIPTION_ID
+require_env ARM_CLIENT_ID "$CREDENTIALS_FILE"
+require_env ARM_CLIENT_SECRET "$CREDENTIALS_FILE"
+require_env ARM_TENANT_ID "$CREDENTIALS_FILE"
+require_env ARM_SUBSCRIPTION_ID "$CREDENTIALS_FILE"
 
-require_env TF_VAR_admin_password
+require_env TF_VAR_admin_password "$PASSWORD_FILE"
 
 # Ensure Terraform picks up the subscription explicitly
 export TF_VAR_subscription_id="$ARM_SUBSCRIPTION_ID"
