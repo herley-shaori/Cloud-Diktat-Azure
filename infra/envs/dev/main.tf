@@ -22,7 +22,7 @@ module "website_vm" {
   location            = local.location
   admin_username      = var.admin_username
   admin_password      = var.admin_password
-  vm_size             = "Standard_B1ls"
+  vm_size             = "Standard_A1_v2"
   source_dir          = "${path.module}/../../../app/frontend/public"
   name_prefix         = "clouddiktatdev"
 
